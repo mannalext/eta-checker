@@ -10,24 +10,24 @@ export default async function handler(req, res) {
   const wadsworthUrl = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=3596+South+Medina+Line+Road+Wadsworth+Ohio+44281&key=${process.env.GOOGLE_MAPS_API_KEY}`;
   const raysCircleUrl = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=4835+Rays+Cir+Dublin+Ohio+43016&key=${process.env.GOOGLE_MAPS_API_KEY}`;
 
-  const wadsworthResponse = fetch(wadsworthUrl);
-  const druryResponse = fetch(druryUrl);
-  const lynnFieldResponse = fetch(lynnfieldUrl);
-  const downtownResponse = fetch(downtownUrl);
-  const raysCircleResponse = fetch(raysCircleUrl);
   const farmResponse = fetch(farmUrl);
   const bpsResponse = fetch(bpsUrl);
   const coachResponse = fetch(coachUrl);
+  const lynnFieldResponse = fetch(lynnfieldUrl);
+  const druryResponse = fetch(druryUrl);
+  const downtownResponse = fetch(downtownUrl);
+  const wadsworthResponse = fetch(wadsworthUrl);
+  const raysCircleResponse = fetch(raysCircleUrl);
 
   const responses = await Promise.all([
-    wadsworthResponse,
-    druryResponse,
-    lynnFieldResponse,
-    downtownResponse,
-    raysCircleResponse,
     farmResponse,
     bpsResponse,
-    coachResponse
+    coachResponse,
+    lynnFieldResponse,
+    druryResponse,
+    downtownResponse,
+    wadsworthResponse,
+    raysCircleResponse,
   ]);
 
   const unwrappedResponses = await Promise.all(responses.map(response => response.json()));
