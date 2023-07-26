@@ -8,16 +8,8 @@ export default function Home() {
   const [city, setCity] = useState('Hilliard');
   const [state, setState] = useState('Ohio');
   const [zipCode, setZipCode] = useState('43026');
+  const [data, setData] = useState(null);
 
-  // const handleButtonClick = async () => {
-  //   try {
-  //     const result1 = await fetch(`https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=3596+South+Medina+Line+Road+Wadsworth+Ohio+44281&key=AIzaSyBYhfwE4TJKvDSrcFfdSXqMUpzz8v2Y4k8`);
-  //   } catch (error) {
-  //     console.log(JSON.stringify(error))
-  //   }
-  //   // TODO: other calls
-  //   console.log(result1);
-  // }
 
   const handleButtonClick = async () => {
     const res = await fetch('/api/directions', {
@@ -29,6 +21,7 @@ export default function Home() {
     });
     const data = await res.json();
   
+    setData(data);
     console.log(data);
   }
 
@@ -73,7 +66,17 @@ export default function Home() {
         </div>
         <button onClick={handleButtonClick}>
             magic
-          </button>
+        </button>
+        {data && (
+          <div className="results-container">
+            {data.map((item, index) => (
+              <div key={index}>
+                <p>Response {index + 1}:</p>
+                <pre>{JSON.stringify(item, null, 2)}</pre>
+              </div>
+            ))}
+          </div>
+        )}
       </main>
 
       <Footer />
