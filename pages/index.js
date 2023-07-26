@@ -4,10 +4,10 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 
 export default function Home() {
-  const [streetAddress, setStreetAddress] = useState('5151 Bonner Drive');
-  const [city, setCity] = useState('Hilliard');
+  const [streetAddress, setStreetAddress] = useState('');
+  const [city, setCity] = useState('');
   const [state, setState] = useState('Ohio');
-  const [zipCode, setZipCode] = useState('43026');
+  const [zipCode, setZipCode] = useState('');
   const [data, setData] = useState(null);
 
 
