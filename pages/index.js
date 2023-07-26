@@ -12,7 +12,7 @@ export default function Home() {
 
 
   const handleButtonClick = async () => {
-    const res = await fetch('https://quiet-jelly-feeb71.netlify.app/api/directions', {
+    const res = await fetch('https://quiet-jelly-feeb71.netlify.app/eta-checker/api/directions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
