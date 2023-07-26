@@ -28,14 +28,14 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Next.js Starter!</title>
+        <title>ETA-Checker</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Header title="Check ETAs from a new address:" />
+        <Header title="Check ETAs to a new address:" />
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          Enter the address of the new house in the fields below
         </p>
 
         <div className="addressContainer">
@@ -71,9 +71,9 @@ export default function Home() {
           <div className="results-container">
             {data.map((item, index) => (
               <div key={index}>
-                <p>{JSON.stringify(item.origin)}:</p>
-                <pre>Distance: {JSON.stringify(item.distance)}</pre>
-                <pre>Duration: {JSON.stringify(item.duration)}</pre>
+                <p>{JSON.stringify(item.origin).replace("\"", "")}:</p>
+                <pre>Distance: {JSON.stringify(item.distance).replace("\"", "")}</pre>
+                <pre>Duration: {JSON.stringify(item.duration).replace("\"", "")}</pre>
               </div>
             ))}
           </div>
