@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   const { streetAddress, city, state, zipCode } = req.body;
 
-  const url = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=3596+South+Medina+Line+Road+Wadsworth+Ohio+44281&key=AIzaSyBYhfwE4TJKvDSrcFfdSXqMUpzz8v2Y4k8`;
+  const url = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=3596+South+Medina+Line+Road+Wadsworth+Ohio+44281&key=AIzaSyAEMMyocf_G-akMxfy7koKRf_Knjh0pu9s`;
 
   const response = await fetch(url);
   const data = await response.json();
