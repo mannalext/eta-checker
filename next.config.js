@@ -8,7 +8,7 @@ module.exports = {
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
-            value: 'alexmann.dev',
+            value: 'https://alexmann.dev',
           },
           {
             key: 'Access-Control-Allow-Methods',
