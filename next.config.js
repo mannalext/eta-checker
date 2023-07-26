@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         // Match the route of your API route
-        source: '/api/directions',
+        source: '/eta-checker/api/directions',
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
