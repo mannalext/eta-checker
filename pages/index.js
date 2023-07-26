@@ -9,14 +9,27 @@ export default function Home() {
   const [state, setState] = useState('Ohio');
   const [zipCode, setZipCode] = useState('43026');
 
+  // const handleButtonClick = async () => {
+  //   try {
+  //     const result1 = await fetch(`https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=3596+South+Medina+Line+Road+Wadsworth+Ohio+44281&key=AIzaSyBYhfwE4TJKvDSrcFfdSXqMUpzz8v2Y4k8`);
+  //   } catch (error) {
+  //     console.log(JSON.stringify(error))
+  //   }
+  //   // TODO: other calls
+  //   console.log(result1);
+  // }
+
   const handleButtonClick = async () => {
-    try {
-      const result1 = await fetch(`https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=3596+South+Medina+Line+Road+Wadsworth+Ohio+44281&key=AIzaSyBYhfwE4TJKvDSrcFfdSXqMUpzz8v2Y4k8`);
-    } catch (error) {
-      console.log(JSON.stringify(error))
-    }
-    // TODO: other calls
-    console.log(result1);
+    const res = await fetch('/api/directions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ streetAddress, city, state, zipCode })
+    });
+    const data = await res.json();
+  
+    console.log(data);
   }
 
   return (
