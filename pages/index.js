@@ -71,9 +71,9 @@ export default function Home() {
           <div className="results-container">
             {data.map((item, index) => (
               <div key={index}>
-                <p>{JSON.stringify(item.origin).replace("\"", "")}:</p>
-                <pre>Distance: {JSON.stringify(item.distance).replace("\"", "")}</pre>
-                <pre>Duration: {JSON.stringify(item.duration).replace("\"", "")}</pre>
+                <p>{JSON.stringify(item.origin).replaceAll("\"", "")}:</p>
+                <pre>Distance: {JSON.stringify(item.distance).replaceAll("\"", "")}</pre>
+                <pre>Duration: {JSON.stringify(item.duration).replaceAll("\"", "")}</pre>
               </div>
             ))}
           </div>
