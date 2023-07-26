@@ -12,7 +12,7 @@ export default function Home() {
 
 
   const handleButtonClick = async () => {
-    const res = await fetch('eta-checker/api/directions', {
+    const res = await fetch('/api/directions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
