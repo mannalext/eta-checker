@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   const downtownUrl = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=200+W+Nationwide+Blvd+Columbus+Ohio+43215&key=${process.env.GOOGLE_MAPS_API_KEY}`;
   const wadsworthUrl = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=3596+South+Medina+Line+Road+Wadsworth+Ohio+44281&key=${process.env.GOOGLE_MAPS_API_KEY}`;
   const raysCircleUrl = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=4835+Rays+Cir+Dublin+Ohio+43016&key=${process.env.GOOGLE_MAPS_API_KEY}`;
+  const eastonUrl = `https://maps.googleapis.com/maps/api/directions/json?destination=${streetAddress.replace(' ', '+')}+${city}+${state}+${zipCode}&origin=160+Easton+Town+Center+Columbus+Ohio+43219&key=${process.env.GOOGLE_MAPS_API_KEY}`;
 
   const farmResponse = fetch(farmUrl);
   const bpsResponse = fetch(bpsUrl);
@@ -18,6 +19,7 @@ export default async function handler(req, res) {
   const downtownResponse = fetch(downtownUrl);
   const wadsworthResponse = fetch(wadsworthUrl);
   const raysCircleResponse = fetch(raysCircleUrl);
+  const eastonResponse = fetch(eastonUrl);
 
   const responses = await Promise.all([
     farmResponse,
@@ -28,6 +30,7 @@ export default async function handler(req, res) {
     downtownResponse,
     wadsworthResponse,
     raysCircleResponse,
+    eastonResponse,
   ]);
 
   const unwrappedResponses = await Promise.all(responses.map(response => response.json()));
